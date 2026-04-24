@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Currency Converter</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <h1>Currency Exchange</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="converter.html">Converter</a></li>
+        <li><a href="live.html">Live Exchange</a></li>
+        <li><a href="history.html">Historical Data</a></li>
+        <li><a href="delete.html">Delete Account</a></li>
+        <li><a href="signup.html">Signup</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+
+    <!-- Converter form -->
+    <main class="form-container">
+      <h2>Currency Converter</h2>
+      <div id="Loader" class="loader"></div>
+      <form id="converterForm">
+        <input
+          type="text"
+          id="baseCurrency"
+          placeholder="Base Currency (e.g. USD)"
+          required
+        />
+        <input
+          type="text"
+          id="targetCurrency"
+          placeholder="Target Currency (e.g. PKR)"
+          required
+        />
+        <input type="number" id="amount" placeholder="Amount" required />
+        <button type="submit">Convert</button>
+      </form>
+      <div id="converterResult" class="result"></div>
+    </main>
+
+    <script src="navbar.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,485 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Body */
+body {
+  background: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  background: #2c3e50;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: #3498db;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #fff;
+  margin: 2rem auto;
+  max-width: 900px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.hero h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* Features grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.feature-card img {
+  max-width: 100px;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.feature-card p {
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  background: #3498db;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #2980b9;
+}
+
+
+
+
+
+/* RESPONSIVENESS FOR HOME */
+/* -------------------------
+   Global Responsive Styles
+------------------------- */
+
+
+
+/* Small screens (phones) */
+@media (max-width: 600px) {
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navbar h1 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.6rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 2rem 1rem;
+    margin: 1rem;
+    max-width: 100%;
+  }
+
+  .hero h2 {
+    font-size: 1.3rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  /* Features grid */
+  .features {
+    grid-template-columns: 1fr; /* single column */
+    margin: 1rem;
+  }
+
+  .feature-card img {
+    max-width: 80px;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+  }
+
+  .feature-card p {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.6rem;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 900px) {
+  /* Navbar */
+  .navbar h1 {
+    font-size: 1.3rem;
+  }
+
+  .nav-links {
+    gap: 0.8rem;
+  }
+
+  /* Hero */
+  .hero {
+    max-width: 100%;
+    margin: 1rem;
+    padding: 2rem;
+  }
+
+  .hero h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Features grid */
+  .features {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin: 1rem;
+  }
+
+  .feature-card img {
+    max-width: 90px;
+  }
+}
+
+/* Large screens (desktop) */
+@media (min-width: 901px) {
+  .navbar h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.2rem;
+  }
+}
+
+                            /* HOME PAGE RESPONSIVENESS SECTION ENDS */
+/* ################################################################################## */
+/* ################################################################################## */
+
+
+
+
+
+/* signup page */
+/* Form container */
+.form-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+/* Inputs */
+.form-container input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button */
+.form-container button {
+  width: 100%;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-container button:hover {
+  background: #2980b9;
+}
+
+
+
+/* Result box for showing conversion output */
+.result {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background: #ecf0f1;
+  border-radius: 4px;
+  min-height: 30px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+
+
+
+/* delete */
+.dltContent {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* otp */
+/* OTP form */
+.otp-form {
+  margin-top: 1.5rem;
+}
+
+.otp-message {
+  color: #27ae60;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.otp-form input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.otp-btn {
+  width: 100%;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.otp-btn:hover {
+  background: #2980b9;
+}
+
+.back-btn {
+  width: 100%;
+  background: #95a5a6;
+  color: #fff;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #7f8c8d;
+}
+
+                            /*    Responsive Forms & Results STARTED*/
+/* ################################################################################## */
+/* ################################################################################## */
+
+/* -------------------------
+   Responsive Forms & Results
+------------------------- */
+
+/* Small screens (phones) */
+@media (max-width: 600px) {
+  /* Form containers (signup, login, converter, history, delete) */
+  .form-container {
+    width: 95%;
+    margin: 1rem auto;
+    padding: 1.5rem;
+  }
+
+  .form-container h2 {
+    font-size: 1.2rem;
+  }
+
+  .form-container input,
+  .form-container button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  /* Result boxes (converter, history, live) */
+  .result,
+  #converterResult,
+  #liveResult,
+  #historyResult {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  /* OTP form */
+  .otp-form input,
+  .otp-btn,
+  .back-btn {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .otp-message {
+    font-size: 0.85rem;
+  }
+
+  /* Delete account page */
+  .dltContent {
+    margin-top: 20px;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 900px) {
+  .form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+
+  .form-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-container input,
+  .form-container button {
+    font-size: 1rem;
+  }
+
+  .result {
+    font-size: 1rem;
+  }
+
+  .otp-message {
+    font-size: 0.95rem;
+  }
+}
+
+/* Large screens (desktop) */
+@media (min-width: 901px) {
+  .form-container {
+    max-width: 400px;
+  }
+
+  .form-container h2 {
+    font-size: 1.4rem;
+  }
+
+  .result {
+    font-size: 1.05rem;
+  }
+}
+
+
+
+                            /*    Responsive Forms & Results ends*/
+/* ################################################################################## */
+/* ################################################################################## */
+
+
+
+/* Loader spinner */
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 1rem auto;
+  display: none; /* hidden by default */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

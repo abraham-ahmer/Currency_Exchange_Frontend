@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Live Exchange</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <h1>Currency Exchange</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="converter.html">Converter</a></li>
+        <li><a href="live.html">Live Exchange</a></li>
+        <li><a href="history.html">Historical Data</a></li>
+        <li><a href="delete.html">Delete Account</a></li>
+        <li><a href="signup.html">Signup</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+
+    <!-- Converter form -->
+    <main class="form-container">
+      <h2>LIVE Currency Converter</h2>
+      <div id="Loader" class="loader"></div>
+      <form id="liveForm">
+        <input
+          type="text"
+          id="liveBaseCurrency"
+          placeholder="Base Currency (e.g. USD)"
+          required
+        />
+        <input
+          type="text"
+          id="liveTargetCurrency"
+          placeholder="Target Currency (e.g. PKR)"
+          required
+        />
+        <button type="submit">Get Live Data</button>
+      </form>
+      <div id="liveResult" class="result"></div>
+    </main>
+
+    <script src="navbar.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
