@@ -18,6 +18,7 @@ signupForm.addEventListener("submit", async (e) => {
       body: JSON.stringify({ username, email, password }),
     });
     loader.style.display = "none"; // hide loader once response arrives
+
     if (response.ok) {
       const data = await response.json();
       
@@ -43,6 +44,8 @@ signupForm.addEventListener("submit", async (e) => {
 
 otpForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+  loader.style.display = "block";
+
   const otp = document.querySelector("#otpInput").value.trim();
   const email = otpForm.dataset.email;
 
@@ -52,6 +55,8 @@ otpForm.addEventListener("submit", async (e) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, otp }),
     });
+
+    loader.style.display = "none";
 
     if (res.ok) {
       const data = await res.json();
@@ -67,6 +72,7 @@ otpForm.addEventListener("submit", async (e) => {
 });
 
 backBtn.addEventListener("click", () => {
+  loader.style.display = "none";  // hide loader on network error
   signupForm.style.display = "block";
   otpForm.style.display = "none";
 });
