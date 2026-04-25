@@ -206,27 +206,38 @@ const loginBtn = document.querySelector('a[href="login.html"]');
 
 if (dltButton) {
   dltButton.addEventListener("click", async () => {
-    token = localStorage.getItem("access_token");
+    const token = localStorage.getItem("access_token");
     if (!token) {
       dltText.textContent =
         "Please log in first to delete your account and history";
       return;
     }
-    const response = await fetch("https://currency-exchange-backend-zi4p.onrender.com/currency/delete", {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    if (response.ok) {
-      const data = await response.json();
-      dltText.textContent = `${data.message}`;
-      localStorage.removeItem("access_token");
-      window.location.href = "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/index.html";
-      signupBtn.style.visibility = "visible";
-      loginBtn.textContent = "Login";
 
-    } else {
-      const error = await response.json();
-      dltText.textContent = `${error.detail}`;
+    loader.style.display = "block"; // show loader 
+
+    try {
+      const response = await fetch("https://currency-exchange-backend-zi4p.onrender.com/currency/delete", {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      loader.style.display = "none"; // stop loader once response arrives
+
+      if (response.ok) {
+        const data = await response.json();
+        dltText.textContent = `${data.message}`;
+        localStorage.removeItem("access_token");
+        window.location.href = "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/index.html";
+        signupBtn.style.visibility = "visible";
+        loginBtn.textContent = "Login";
+      } else {
+        const error = await response.json();
+        dltText.textContent = `${error.detail}`;
+      }
+    } catch (err) {
+      loader.style.display = "none"; // stop loader on network error
+      dltText.textContent = `Network error: ${err.message}`;
     }
   });
 }
+
