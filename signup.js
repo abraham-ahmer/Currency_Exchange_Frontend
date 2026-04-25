@@ -32,8 +32,13 @@ signupForm.addEventListener("submit", async (e) => {
       otpForm.dataset.email = email;  // create custom attribute with data-email = useremail
     } else {
       const error = await response.json();
-      messageBox.textContent = error.details;
+      messageBox.textContent = error.detail;
       messageBox.style.display = "block"
+
+       // Keep signup form visible, hide OTP form
+      signupForm.style.display = "block";
+      otpForm.style.display = "none";
+      
       signupForm.reset();
     }
   } catch (error) {
