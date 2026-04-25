@@ -10,7 +10,7 @@ loginForm.addEventListener("submit", async (e) => {
   formData.append("password", password);
   console.log(formData)
 
-  const response = await fetch("http://127.0.0.1:8000/login", {
+  const response = await fetch("https://currency-exchange-backend-zi4p.onrender.com/login", {
     method: "POST",
     body: formData,
   });

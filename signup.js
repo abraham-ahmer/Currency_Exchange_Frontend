@@ -12,7 +12,7 @@ signupForm.addEventListener("submit", async (e) => {
   const password = document.querySelector("#signPassword").value.trim();
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/signup", {
+    const response = await fetch("https://currency-exchange-backend-zi4p.onrender.com/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password }),
@@ -47,7 +47,7 @@ otpForm.addEventListener("submit", async (e) => {
   const email = otpForm.dataset.email;
 
   try {
-    const res = await fetch("http://127.0.0.1:8000/signup/verify_otp", {
+    const res = await fetch("https://currency-exchange-backend-zi4p.onrender.com/signup/verify_otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, otp }),

@@ -37,7 +37,7 @@ if (converterForm) {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/currency/currency_converter", {
+      const response = await fetch("https://currency-exchange-backend-zi4p.onrender.com/currency/currency_converter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ base_currency, target_currency, amount }),
@@ -90,7 +90,7 @@ if (liveForm) {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/currency/live_currency_exchange",
+        "https://currency-exchange-backend-zi4p.onrender.com/currency/live_currency_exchange",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -160,7 +160,7 @@ if (historyForm) {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/currency/historical_currency_data", {
+      const response = await fetch("https://currency-exchange-backend-zi4p.onrender.com/currency/historical_currency_data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -212,7 +212,7 @@ if (dltButton) {
         "Please log in first to delete your account and history";
       return;
     }
-    const response = await fetch("http://127.0.0.1:8000/currency/delete", {
+    const response = await fetch("https://currency-exchange-backend-zi4p.onrender.com/currency/delete", {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
