@@ -19,7 +19,7 @@ loginForm.addEventListener("submit", async (e) => {
     alert(`Login successful. Welcome back`);
     localStorage.setItem("access_token", data.access_token);
     loginForm.reset();
-    window.location.href = "/index.html";
+    window.location.href = "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/index.html";
 
     updateNavbar()
   } else {

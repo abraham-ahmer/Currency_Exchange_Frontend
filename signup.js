@@ -56,7 +56,7 @@ otpForm.addEventListener("submit", async (e) => {
     if (res.ok) {
       const data = await res.json();
       alert(`Signup Completed. Welcome On board ${data.username}`);
-      window.location.href = "/login.html";
+      window.location.href = "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/login.html";
     } else {
       const err = await res.json();
       alert(`Error: ${err.details}`);

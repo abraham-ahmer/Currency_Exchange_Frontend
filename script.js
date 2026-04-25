@@ -220,7 +220,7 @@ if (dltButton) {
       const data = await response.json();
       dltText.textContent = `${data.message}`;
       localStorage.removeItem("access_token");
-      window.location.href = "/index.html";
+      window.location.href = "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/index.html";
       signupBtn.style.visibility = "visible";
       loginBtn.textContent = "Login";
 
