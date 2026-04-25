@@ -14,17 +14,22 @@ loginForm.addEventListener("submit", async (e) => {
   formData.append("password", password);
 
   try {
-    const response = await fetch("https://currency-exchange-backend-zi4p.onrender.com/login", {
-      method: "POST",
-      body: formData,
-    });
+    const response = await fetch(
+      "https://currency-exchange-backend-zi4p.onrender.com/login",
+      {
+        method: "POST",
+        body: formData,
+      },
+    );
+    loader.style.display = "none"; // hide loader
 
     if (response.ok) {
       const data = await response.json();
       alert(`Login successful. Welcome back`);
       localStorage.setItem("access_token", data.access_token);
       loginForm.reset();
-      window.location.href = "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/index.html";
+      window.location.href =
+        "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/index.html";
       updateNavbar();
     } else {
       const error = await response.json();
@@ -32,9 +37,7 @@ loginForm.addEventListener("submit", async (e) => {
       loginForm.reset();
     }
   } catch (err) {
+    loader.style.display = "none";
     alert(`Network error: ${err.message}`);
-  } finally {
-    loader.style.display = "none"; // hide loader
   }
 });
-
