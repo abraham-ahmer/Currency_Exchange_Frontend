@@ -7,7 +7,9 @@ async function refreshAccessToken() {
   if (!refreshToken) return null; // if no ref token, return nothin
 
   try {
-    const response = await fetch("https://currency-exchange-backend-zi4p.onrender.com/login/refresh",{
+    const response = await fetch(
+      "https://currency-exchange-backend-zi4p.onrender.com/login/refresh",
+      {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refresh_token: refreshToken }),
@@ -31,8 +33,6 @@ async function refreshAccessToken() {
   }
 }
 
-
-
 // runs second and calls refreshAccessToken
 function startRefreshTimer() {
   //25 minutes in ms
@@ -42,9 +42,8 @@ function startRefreshTimer() {
   }, interval);
 }
 
-
-// runs first and call startRefreshTimer 
-loginForm.addEventListener("submit", async (e) => {  
+// runs first and call startRefreshTimer
+loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   loader.style.display = "block"; // show loader immediately on submit
@@ -79,7 +78,7 @@ loginForm.addEventListener("submit", async (e) => {
         "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/index.html";
       updateNavbar();
 
-      // start refresh timer 
+      // start refresh timer
       startRefreshTimer();
     } else {
       const error = await response.json();
@@ -92,30 +91,26 @@ loginForm.addEventListener("submit", async (e) => {
   }
 });
 
-
-
-
-
-
 // for other endpoints in frontend calling backend endpoints
 async function fetchWithAuth(url, options = {}) {
   let token = localStorage.getItem("access_token");
 
-  let response = await fetch(url, {   // fetch url on protected endpoints behalf.
-    ...options,                      // these three dots spreads things like header, body etc, if any.
+  let response = await fetch(url, {
+    // fetch url on protected endpoints behalf.
+    ...options, // these three dots spreads things like header, body etc, if any.
     headers: { ...options.headers, Authorization: `Bearer ${token}` },
-  }); 
+  });
 
   // if unauthorized, try refresh.
   if (response.status === 401) {
-    let token = await refreshAccessToken(); // refresh if unauthorize
-    if (token) { // if gets token, the fetch again with new access token.
-      let response = await fetch(url, {
+    let token = await refreshAccessToken();
+    if (token) {
+      response = await fetch(url, {
         ...options,
         headers: { ...options.headers, Authorization: `Bearer ${token}` },
       });
     }
   }
-  return response; // Returns whichever response worked (original or refreshed).
+  return response;
+  // Returns whichever response worked (original or refreshed).
 }
-
