@@ -101,21 +101,21 @@ loginForm.addEventListener("submit", async (e) => {
 async function fetchWithAuth(url, options = {}) {
   let token = localStorage.getItem("access_token");
 
-  let response = await fetch(url, {
-    ...options, /// these three dots spreads everything inside it as obj
+  let response = await fetch(url, {   // fetch url on protected endpoints behalf.
+    ...options,                      // these three dots spreads things like header, body etc, if any.
     headers: { ...options.headers, Authorization: `Bearer ${token}` },
   }); 
 
   // if unauthorized, try refresh.
   if (response.status === 401) {
-    let token = await refreshAccessToken();
-    if (token) {
+    let token = await refreshAccessToken(); // refresh if unauthorize
+    if (token) { // if gets token, the fetch again with new access token.
       let response = await fetch(url, {
         ...options,
         headers: { ...options.headers, Authorization: `Bearer ${token}` },
       });
     }
   }
-  return response;
+  return response; // Returns whichever response worked (original or refreshed).
 }
 
