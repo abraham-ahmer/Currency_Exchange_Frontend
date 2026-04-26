@@ -168,6 +168,8 @@ if (historyForm) {
 
       loader.style.display = "none"; // hide loader once response arrives
 
+      console.log("fetchWithAuth final response status:", response.status);
+
       if (response.ok) {
         const data = await response.json();
         historyResult.innerHTML = `
@@ -216,7 +218,7 @@ if (dltButton) {
       const response = await fetchWithAuth("https://currency-exchange-backend-zi4p.onrender.com/currency/delete", {
         method: "DELETE"
       });
-      console.log("fetchWithAuth final response status:", response.status);
+      
 
       loader.style.display = "none"; // stop loader once response arrives
 
