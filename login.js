@@ -43,53 +43,56 @@ function startRefreshTimer() {
 }
 
 // runs first and call startRefreshTimer
-loginForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  loader.style.display = "block"; // show loader immediately on submit
-
-  const username = document.querySelector("#loginUsername").value.trim();
-  const password = document.querySelector("#loginPassword").value.trim();
-
-  const formData = new URLSearchParams();
-  formData.append("username", username);
-  formData.append("password", password);
-
-  try {
-    const response = await fetch(
-      "https://currency-exchange-backend-zi4p.onrender.com/login",
-      {
-        method: "POST",
-        body: formData,
-      },
-    );
-    loader.style.display = "none"; // hide loader
-
-    if (response.ok) {
-      const data = await response.json();
-      alert(`Login successful. Welcome back`);
-
-      // saving both access and refreshing tokens
-      localStorage.setItem("access_token", data.access_token);
-      localStorage.setItem("refresh_token", data.refresh_token);
-
-      loginForm.reset();
-      window.location.href =
-        "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/index.html";
-      updateNavbar();
-
-      // start refresh timer
-      startRefreshTimer();
-    } else {
-      const error = await response.json();
-      alert(`Error occurred while logging in: ${error.detail}`);
-      loginForm.reset();
+if (loginForm) {
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+  
+    loader.style.display = "block"; // show loader immediately on submit
+  
+    const username = document.querySelector("#loginUsername").value.trim();
+    const password = document.querySelector("#loginPassword").value.trim();
+  
+    const formData = new URLSearchParams();
+    formData.append("username", username);
+    formData.append("password", password);
+  
+    try {
+      const response = await fetch(
+        "https://currency-exchange-backend-zi4p.onrender.com/login",
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
+      loader.style.display = "none"; // hide loader
+  
+      if (response.ok) {
+        const data = await response.json();
+        alert(`Login successful. Welcome back`);
+  
+        // saving both access and refreshing tokens
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("refresh_token", data.refresh_token);
+  
+        loginForm.reset();
+        window.location.href =
+          "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/index.html";
+        updateNavbar();
+  
+        // start refresh timer
+        startRefreshTimer();
+      } else {
+        const error = await response.json();
+        alert(`Error occurred while logging in: ${error.detail}`);
+        loginForm.reset();
+      }
+    } catch (err) {
+      loader.style.display = "none";
+      alert(`Network error: ${err.message}`);
     }
-  } catch (err) {
-    loader.style.display = "none";
-    alert(`Network error: ${err.message}`);
-  }
-});
+  });
+
+}
 
 // for other endpoints in frontend calling backend endpoints
 async function fetchWithAuth(url, options = {}) {
