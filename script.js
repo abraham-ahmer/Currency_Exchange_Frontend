@@ -183,7 +183,7 @@ if (historyForm) {
         historyForm.reset();
       } else {
         const error = await response.json();
-        const errMsg = error.details || error.message || "Unknown error";
+        const errMsg = error.detail || error.message || "Unknown error";
         historyResult.innerHTML = `<p>${errMsg}</p>`;
         historyForm.reset();
       }
