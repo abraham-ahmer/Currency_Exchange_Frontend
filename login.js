@@ -111,6 +111,7 @@ async function fetchWithAuth(url, options = {}) {
       });
     }
   }
+  console.log("fetchWithAuth final response status:", response.status);
   return response;
   // Returns whichever response worked (original or refreshed).
 }
