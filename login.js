@@ -1,5 +1,5 @@
 const loginForm = document.querySelector("#loginForm");
-const loader = document.querySelector("#Loader"); // loader element by ID
+const signLoader  = document.querySelector("#Loader"); // loader element by ID
 
 // get new access token using refresh token
 async function refreshAccessToken() {
@@ -47,7 +47,7 @@ if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
   
-    loader.style.display = "block"; // show loader immediately on submit
+    signLoader.style.display = "block"; // show loader immediately on submit
   
     const username = document.querySelector("#loginUsername").value.trim();
     const password = document.querySelector("#loginPassword").value.trim();
@@ -64,7 +64,7 @@ if (loginForm) {
           body: formData,
         },
       );
-      loader.style.display = "none"; // hide loader
+      signLoader.style.display = "none"; // hide loader
   
       if (response.ok) {
         const data = await response.json();
@@ -87,7 +87,7 @@ if (loginForm) {
         loginForm.reset();
       }
     } catch (err) {
-      loader.style.display = "none";
+      signLoader.style.display = "none";
       alert(`Network error: ${err.message}`);
     }
   });
