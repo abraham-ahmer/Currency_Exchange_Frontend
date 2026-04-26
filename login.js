@@ -96,14 +96,12 @@ async function fetchWithAuth(url, options = {}) {
   let token = localStorage.getItem("access_token");
 
   let response = await fetch(url, {
-    // fetch url on protected endpoints behalf.
-    ...options, // these three dots spreads things like header, body etc, if any.
+    ...options,
     headers: { ...options.headers, Authorization: `Bearer ${token}` },
   });
 
-  // if unauthorized, try refresh.
   if (response.status === 401) {
-    let token = await refreshAccessToken();
+    token = await refreshAccessToken();
     if (token) {
       response = await fetch(url, {
         ...options,
@@ -111,7 +109,6 @@ async function fetchWithAuth(url, options = {}) {
       });
     }
   }
-  console.log("fetchWithAuth final response status:", response.status);
   return response;
-  // Returns whichever response worked (original or refreshed).
 }
+
