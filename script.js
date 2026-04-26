@@ -160,12 +160,9 @@ if (historyForm) {
     }
 
     try {
-      const response = await fetch("https://currency-exchange-backend-zi4p.onrender.com/currency/historical_currency_data", {
+      const response = await fetchWithAuth("https://currency-exchange-backend-zi4p.onrender.com/currency/historical_currency_data", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ base_currency, target_currency, amount, historical_date }),
       });
 
@@ -216,9 +213,8 @@ if (dltButton) {
     loader.style.display = "block"; // show loader 
 
     try {
-      const response = await fetch("https://currency-exchange-backend-zi4p.onrender.com/currency/delete", {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
+      const response = await fetchWithAuth("https://currency-exchange-backend-zi4p.onrender.com/currency/delete", {
+        method: "DELETE"
       });
 
       loader.style.display = "none"; // stop loader once response arrives
