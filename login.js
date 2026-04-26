@@ -100,6 +100,8 @@ async function fetchWithAuth(url, options = {}) {
     headers: { ...options.headers, Authorization: `Bearer ${token}` },
   });
 
+  console.log("fetchWithAuth called with URL:", url);
+
   if (response.status === 401) {
     token = await refreshAccessToken();
     if (token) {
