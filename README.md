@@ -2,11 +2,11 @@
 
 Frontend interface for the **Currency Exchange App**, built with **HTML, CSS, and JavaScript**. It connects to the FastAPI backend and provides a clean user experience for signup, OTP verification, login, currency conversion, and account management.
 
-🌐 Live Demo: [Currency Exchange Frontend](https://abraham-ahmer.github.io/Currency_Exchange_Frontend/)
+Live: [Currency Exchange Frontend](https://abraham-ahmer.github.io/Currency_Exchange_Frontend/)
 
 ---
 
-## 🚀 Features
+## Features
 - Signup form with OTP verification flow
 - Login and secure session handling
 - Currency converter with live exchange rates
@@ -16,20 +16,26 @@ Frontend interface for the **Currency Exchange App**, built with **HTML, CSS, an
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 frontend/
+
 │── index.html        # Homepage with converter
+
 │── login.html        # Login page
+
 │── signup.html       # Signup + OTP form
+
 │── style.css         # Global styling
+
 │── script.js         # Frontend logic & API calls
+
 │── README.md         # Documentation
 
 
 
 ---
 
-## ⚙️ Setup & Usage
+## Setup & Usage
 1. Clone the repo:
    ```bash
    git clone https://github.com/abraham-ahmer/Currency_Exchange_Frontend.git
