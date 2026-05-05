@@ -24,8 +24,7 @@ async function refreshAccessToken() {
       // if refresh failed. 7 days have passed... backend checked it... FORCED LOGOUT
       localStorage.removeItem("access_token");
       localStorage.removeItem("refresh_token");
-      window.location.href =
-        "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/index.html";
+      window.location.href = "https://abraham-ahmer.github.io/Currency_Exchange_Frontend/index.html";
       return null;
     }
   } catch (error) {
@@ -102,8 +101,6 @@ async function fetchWithAuth(url, options = {}) {
     ...options,
     headers: { ...options.headers, Authorization: `Bearer ${token}` },
   });
-
-  console.log("fetchWithAuth called with URL:", url);
 
   if (response.status === 401) {
     token = await refreshAccessToken();
